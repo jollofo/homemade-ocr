@@ -1,24 +1,7 @@
 import tensorflow as tf
 
 def model_pass(input, params, is_training):
-    """
-    Performs a full model pass.
-    
-    Parameters
-    ----------
-    input         : Tensor
-                    Batch of examples.
-    params        : Parameters
-                    Structure (`namedtuple`) containing model parameters.
-    is_training   : Tensor of type tf.bool
-                    Flag indicating if we are training or not (e.g. whether to use dropout).
-                    
-    Returns
-    -------
-    Tensor with predicted logits.
-    """
     # Convolutions
-
     with tf.variable_scope('conv1'):
         conv1 = conv_relu(input, kernel_size = params.conv1_k, depth = params.conv1_d) 
         pool1 = pool(conv1, size = 2)
